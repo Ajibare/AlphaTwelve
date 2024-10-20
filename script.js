@@ -197,3 +197,28 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
   
+
+
+
+
+
+
+
+  
+  const userData = {
+    name: "Rudra Devi",
+    email: "rudra.devi@gmail.com",
+    avatarUrl: "https://via.placeholder.com/40"
+};
+
+document.addEventListener('DOMContentLoaded', function() {
+    const userAvatar = document.getElementById('userAvatar');
+    const userName = document.getElementById('userName');
+    const userEmail = document.getElementById('userEmail');
+
+    // Update the DOM with user data
+    userAvatar.src = userData.avatarUrl;
+    userAvatar.alt = `${userData.name}'s avatar`;
+    userName.textContent = userData.name;
+    userEmail.textContent = userData.email;
+});

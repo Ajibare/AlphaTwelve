@@ -6,6 +6,7 @@
     <meta name="author" content="Ajibare B B">
     <meta name="description" content="Ajibare Resume">
     <title>Event Management Dashboard</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"> -->
     <link rel="stylesheet" href="style.css">
@@ -14,28 +15,71 @@
 <body>
     <!-- Sidebar Navigation -->
     <div id="sidebar">
+
+      <h4>Full Logo</h4>
+      <nav>
         <ul>
-            <li><i class="fa-light fa-house"></i><span class="text">Home</span></li>
-            <li><i class="fa-light fa-calendar-days"></i><span class="text">Events</span></li>
-            <li><i class="icon"></i><span class="text">Speakers</span></li>
-            <li><i class="icon"></i><span class="text">Report</span></li>
-            <li><i class="icon"></i><span class="text">Notification</span></li>
-            <li><i class="icon"></i><span class="text">Message</span></li>
-            <li><i class="icon"></i><span class="text">Settings</span></li>
-            <li><i class="icon"></i><span class="text">Collapse</span></li>
-            <li><button id="darkModeToggle">Toggle Dark Mode</button></li>
-            <li>
-             <div>
-              <img src="" alt="">
-              <div>
-                <p>Rudra Devi</p>
-                rudra.devi@gmail.com
-              </div>
-             </div>
-              
-            </li>
+          <li><i class='bx bx-home'></i><a href="/" class="text">Home</a></li>
+          <li><i class='bx bx-calendar'></i><a href="" class="text">Events</a></li>
+          <li><i class='bx bxs-user-voice'></i><a href="" class="text">Speakers</a></li>
+          <li><i class='bx bx-notepad'></i><a href="" class="text">Report</a></li>
+          <li><i class='bx bx-bell'></i><a href="" class="text">Notification</a></li>
+          <li><i class='bx bx-chat'></i><a href="" class="text">Message</a></li>
+          <li><i class='bx bx-cog' ></i><a href="" class="text">Setting</a></li>
+          <li><i class='bx bx-chevrons-left'></i><a href="" class="text">Collapse</a></li>
+          <!-- <li><button id="darkModeToggle">Toggle Dark Mode</button></li> -->
         </ul>
-        <button id="toggleSidebar">Toggle Sidebar</button>
+        <!-- <div class="mode-changer">
+          <label id="dark-change"></label>
+          <span class="dark">Dark Mode</span>
+        </div> -->
+        <div class="mode-changer">
+          <label id="dark-change" class="switch">
+              <input type="checkbox" id="mode-toggle">
+              <span class="slider round"></span>
+          </label>
+          <span class="dark">Dark Mode</span>
+      </div>
+      
+        
+
+      </nav>
+
+<script>
+  const modeToggle = document.getElementById('mode-toggle');
+
+modeToggle.addEventListener('change', function() {
+    if (this.checked) {
+        // Enable dark mode by changing CSS variables
+        document.documentElement.style.setProperty('--background-color', 'var(--dark-background-color)');
+        document.documentElement.style.setProperty('--text-color', 'var(--dark-text-color)');
+        document.documentElement.style.setProperty('--primary-color', 'var(--dark-primary-color)');
+        document.documentElement.style.setProperty('--secondary-color', 'var(--dark-secondary-color)');
+        document.documentElement.style.setProperty('--nav-hover-color', 'var(--dark-nav-hover-color)');
+        document.documentElement.style.setProperty(' --background-event-color', 'var(-dark-background-event-color)');
+    } else {
+        // Reset to light mode by changing back to original CSS variables
+        document.documentElement.style.setProperty('--background-color', 'var(--background-color)');
+        document.documentElement.style.setProperty('--text-color', 'var(--text-color)');
+        document.documentElement.style.setProperty('--primary-color', 'var(--primary-color)');
+        document.documentElement.style.setProperty('--secondary-color', 'var(--secondary-color)');
+        document.documentElement.style.setProperty('--nav-hover-color', 'var(--dark-nav-hover-color)');
+        document.documentElement.style.setProperty(' --background-event-color', 'var(-dark-background-event-color)');
+    }
+});
+
+</script>
+
+       <div class="user-profile">
+        <div class="avatar">
+            <!-- <img src="https://via.placeholder.com/40" alt="User Avatar" id="userAvatar"> -->
+            <img src="/Asset/user.png" alt="User Avatar" id="userAvatar">
+        </div>
+        <div class="user-info">
+            <p id="userName">Rudra Devi</p>
+            <p id="userEmail">rudra.devi@gmail.com</p>
+        </div>
+    </div>
     </div>
 
 
@@ -47,10 +91,12 @@
         <!-- Overview Cards -->
         <section id="overview-cards">
             <div class="card">
-                <div class="event_information">
+                <div class="
+                _information">
                    <h3>Total Event</h3>
-                   <img src="./Asset/information.png"
-                    alt="information"> 
+                   <!-- <img src="./Asset/information.png"
+                    alt="information">  -->
+                    <span><ion-icon name="alert-circle-outline"></ion-icon></span>
                 </div>
                 <div class="event_sub_information">
                     <h2>100,000</h2>
@@ -61,8 +107,9 @@
             <div class="card">
                 <div class="event_information">
                    <h3>Active Speakers</h3>
-                   <img src="./Asset/information.png"
-                    alt="information"> 
+                   <!-- <img src="./Asset/information.png"
+                    alt="information">  -->
+                    <span><ion-icon name="alert-circle-outline"></ion-icon></span>
                 </div>
                 <div class="event_sub_information">
                     <h2>25</h2>
@@ -73,8 +120,9 @@
             <div class="card">
                 <div class="event_information">
                    <h3>Total Registrations</h3>
-                   <img src="./Asset/information.png"
-                    alt="information"> 
+                   <!-- <img src="./Asset/information.png"
+                    alt="information">  -->
+                    <span><ion-icon name="alert-circle-outline"></ion-icon></span>
                 </div>
                 <div class="event_sub_information">
                     <h2>300</h2>
@@ -85,8 +133,9 @@
             <div class="card">
                 <div class="event_information">
                    <h3>Total Revenue</h3>
-                   <img src="./Asset/information.png"
-                    alt="information"> 
+                   <!-- <img src="./Asset/information.png"
+                    alt="information">  -->
+                    <span><ion-icon name="alert-circle-outline"></ion-icon></span>
                 </div>
                 <div class="event_sub_information">
                     <h2>$500,000</h2>
@@ -174,6 +223,7 @@
        
 
       <div class="table-container">
+        <h2>Event History</h2>
         <div class="table-header">
           <!-- <input type="text" id="search-input" placeholder="Search..." class="search-input"> -->
            <div class="main-content-seach-btn">
@@ -204,7 +254,7 @@
                         <option value="">Most Recent</option>
                        </select>
                     </span>
-                    <span class="menu-dot"><i class="fa-solid fa-ellipsis-vertical"></i></span>
+                    <span class="menu-dot"><i class='bx bx-dots-vertical-rounded'></i></span>
                     <button class="export-button">
                       <i class="fa-solid fa-download"></i> Export
                       </button>
@@ -312,6 +362,11 @@
       </div>
 
     </main>
+    <script src="script.js"></script>
+
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
 </body>
 </html>
