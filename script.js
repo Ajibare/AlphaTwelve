@@ -54,48 +54,84 @@ window.addEventListener('click', (e) => {
 
 // setInterval(autoSlide, 3000); 
 
-const slideContainer = document.querySelector('.carousel-slide');
+// const slideContainer = document.querySelector('.carousel-slide');
+// const slides = document.querySelectorAll('.carousel-item');
+// const prevButton = document.querySelector('.prev');
+// const nextButton = document.querySelector('.next');
+// const dots = document.querySelectorAll('.dot');
+
+// let currentIndex = 0;
+
+// // Function to update the carousel
+// function updateCarousel() {
+//     slideContainer.style.transform = `translateX(${-currentIndex * 100}%)`;
+
+//     dots.forEach((dot, index) => {
+//         dot.classList.toggle('active', index === currentIndex);
+//     });
+// }
+
+// // Next button event
+// nextButton.addEventListener('click', () => {
+//     currentIndex = (currentIndex + 1) % slides.length;
+//     updateCarousel();
+// });
+
+// // Previous button event
+// prevButton.addEventListener('click', () => {
+//     currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+//     updateCarousel();
+// });
+
+// // Indicator (dot) events
+// dots.forEach((dot, index) => {
+//     dot.addEventListener('click', () => {
+//         currentIndex = index;
+//         updateCarousel();
+//     });
+// });
+
+// // Initialize carousel
+// updateCarousel();
+
+
 const slides = document.querySelectorAll('.carousel-item');
-const prevButton = document.querySelector('.prev');
-const nextButton = document.querySelector('.next');
+const prevBtn = document.querySelector('.prev');
+const nextBtn = document.querySelector('.next');
 const dots = document.querySelectorAll('.dot');
 
-let currentIndex = 0;
+let currentSlide = 0;
 
-// Function to update the carousel
-function updateCarousel() {
-    slideContainer.style.transform = `translateX(${-currentIndex * 100}%)`;
-
-    dots.forEach((dot, index) => {
-        dot.classList.toggle('active', index === currentIndex);
-    });
+// Show the current slide
+function showSlide(index) {
+    if (index >= slides.length) currentSlide = 0;
+    if (index < 0) currentSlide = slides.length - 1;
+    // Move the slides
+    document.querySelector('.carousel-slide').style.transform = `translateX(-${currentSlide * 100}%)`;
+    // Update the active dot
+    dots.forEach(dot => dot.classList.remove('active'));
+    dots[currentSlide].classList.add('active');
 }
 
-// Next button event
-nextButton.addEventListener('click', () => {
-    currentIndex = (currentIndex + 1) % slides.length;
-    updateCarousel();
+// Next slide button
+nextBtn.addEventListener('click', () => {
+    currentSlide++;
+    showSlide(currentSlide);
 });
 
-// Previous button event
-prevButton.addEventListener('click', () => {
-    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-    updateCarousel();
+// Previous slide button
+prevBtn.addEventListener('click', () => {
+    currentSlide--;
+    showSlide(currentSlide);
 });
 
-// Indicator (dot) events
+// Dot indicators click
 dots.forEach((dot, index) => {
     dot.addEventListener('click', () => {
-        currentIndex = index;
-        updateCarousel();
+        currentSlide = index;
+        showSlide(currentSlide);
     });
 });
-
-// Initialize carousel
-updateCarousel();
-
-
-
 
 
 
@@ -208,7 +244,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const userData = {
     name: "Rudra Devi",
     email: "rudra.devi@gmail.com",
-    avatarUrl: "https://via.placeholder.com/40"
+    // avatarUrl: "https://via.placeholder.com"
+    avatarUrl: "avatar"
 };
 
 document.addEventListener('DOMContentLoaded', function() {

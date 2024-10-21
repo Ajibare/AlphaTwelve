@@ -57,6 +57,7 @@ modeToggle.addEventListener('change', function() {
         document.documentElement.style.setProperty('--secondary-color', 'var(--dark-secondary-color)');
         document.documentElement.style.setProperty('--nav-hover-color', 'var(--dark-nav-hover-color)');
         document.documentElement.style.setProperty(' --background-event-color', 'var(-dark-background-event-color)');
+        document.documentElement.style.setProperty(' --border', 'var(-dark-border)');
     } else {
         // Reset to light mode by changing back to original CSS variables
         document.documentElement.style.setProperty('--background-color', 'var(--background-color)');
@@ -65,6 +66,7 @@ modeToggle.addEventListener('change', function() {
         document.documentElement.style.setProperty('--secondary-color', 'var(--secondary-color)');
         document.documentElement.style.setProperty('--nav-hover-color', 'var(--dark-nav-hover-color)');
         document.documentElement.style.setProperty(' --background-event-color', 'var(-dark-background-event-color)');
+        document.documentElement.style.setProperty(' --border', 'var(-dark-border)');
     }
 });
 
@@ -90,7 +92,7 @@ modeToggle.addEventListener('change', function() {
       </div>
         <!-- Overview Cards -->
         <section id="overview-cards">
-            <div class="card">
+            <div class="card open-btn" id="openModalBtn">
                 <div class="
                 _information">
                    <h3>Total Event</h3>
@@ -137,7 +139,7 @@ modeToggle.addEventListener('change', function() {
                     alt="information">  -->
                     <span><ion-icon name="alert-circle-outline"></ion-icon></span>
                 </div>
-                <div class="event_sub_information">
+                <div  class="event_sub_information">
                     <h2>$500,000</h2>
                     <p><img src="./Asset/arrow-up-right.png" alt="direction"></p>
                     <p style="color:#10B981;"> +5.0&#37;</p>
@@ -145,11 +147,100 @@ modeToggle.addEventListener('change', function() {
             </div>
         </section>
 
+
+        <!-- <div class="container"> -->
+          <!-- Button to Open Modal -->
+          <!-- <button id="openModalBtn" class="open-btn">Open Event Modal</button>
+      </div>
+   -->
+      <!-- Modal Structure -->
+      <div id="eventModal" class="modal">
+          <div class="modal-content">
+              <span class="close">&times;</span>
+              <h3 class="event-name">Event Name</h3>
+              <p class="event-date">Event Date</p>
+              <p class="event-description">Event Description</p>
+  
+              <!-- Guest Speakers -->
+              <div class="speakers">
+                <div class="guest-speakers">
+                  <img src="/Asset/first-guest.png" alt="Guest 1" class="guest-avater-first" >
+                  <img src="/Asset/second-guest.png" alt="Guest 2" class="guest-avater-second">
+                  <img src="/Asset/third-guest.png" alt="Guest 3" class="guest-avater-last">
+              </div>
+              <p>3 Guest Speakers: Speaker name A, Speaker name B, Speaker name C.</p>
+              <p>300 Attendees</p>
+              </div>
+  
+              <!-- Modal Buttons -->
+              <div class="modal-actions">
+                <div >
+                  <button class="edit-btn">Edit</button>
+                </div>
+                  <!-- <button class="edit-btn">Edit</button> -->
+                  <!-- <button class="delete-btn">Delete</button>
+                  <button class="complete-btn">Mark as completed</button> -->
+                  <div>
+                    <button class="delete-btn">Delete</button>
+                  <button class="complete-btn">Mark as completed</button>
+                  </div>
+              </div>
+          </div>
+
+          <script>
+            // Get modal elements
+const modal = document.getElementById("eventModal");
+const openModalBtn = document.getElementById("openModalBtn");
+const closeModalBtn = document.querySelector(".close");
+
+// Open the modal
+openModalBtn.addEventListener("click", () => {
+    modal.style.display = "block";
+});
+
+// Close the modal when the 'x' button is clicked
+closeModalBtn.addEventListener("click", () => {
+    modal.style.display = "none";
+});
+
+// Close the modal if the user clicks outside the modal content
+window.addEventListener("click", (event) => {
+    if (event.target === modal) {
+        modal.style.display = "none";
+    }
+});
+
+          </script>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <!-- Chart Section -->
         <div class="event_overview">
             <h2>Event Registration per month</h2>
             <div class="event_statistics">
-                <section id="chart-section">
+                <!-- <section id="chart-section">
                     <div>
                         <canvas id="myChart"></canvas>
                       </div>
@@ -179,7 +270,50 @@ modeToggle.addEventListener('change', function() {
                         });
                       </script>
                       
-                    </section>
+                    </section> -->
+
+                    <section id="chart-section">
+                      <div>
+                          <canvas id="myChart"></canvas>
+                      </div>
+                      
+                      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                      
+                      <script>
+                          const ctx = document.getElementById('myChart');
+                      
+                          new Chart(ctx, {
+                              type: 'bar',
+                              data: {
+                                  labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                                  datasets: [{
+                                      // Removed the label here to remove it from the chart
+                                      data: [700, 900, 700, 400, 1000, 500, 800, 400, 800, 700, 900, 600],
+                                      backgroundColor: 'rgba(54, 162, 235, 0.5)', // Adjusted background color
+                                      borderColor: 'rgba(54, 162, 235, 1)', // Adjusted border color
+                                      borderWidth: 1
+                                  }]
+                              },
+                              options: {
+                                  plugins: {
+                                      legend: {
+                                          display: false // Hides the 'Data set' label
+                                      }
+                                  },
+                                  scales: {
+                                      y: {
+                                          beginAtZero: true,
+                                          ticks: {
+                                              stepSize: 200, // Defines the interval between y-axis labels
+                                              max: 1000 // Sets the maximum y-axis value
+                                          }
+                                      }
+                                  }
+                              }
+                          });
+                      </script>
+                  </section>
+                  
                 <!-- Carousel Section (Latest News & Updates) -->
                 <div class="carousel-container">
                     <!-- Carousel Items -->
@@ -362,6 +496,7 @@ modeToggle.addEventListener('change', function() {
       </div>
 
     </main>
+    <script src="script.js"></script>
     <script src="script.js"></script>
 
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>

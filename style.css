@@ -16,16 +16,18 @@
   --text-color: #334155;
   --secondary-color: #000;
   --nav-hover-color:#FCF7FF;
-  --background-event-color: #fff;
+  --background-event-color: #F1F5F9;
+  --border: 1px solid #F1F5F9;
 
 
   /* Dark mode color variables */
-  --dark-background-color: #000;
+  --dark-background-color: #484554;
   --dark-text-color: #ffff;
   --dark-primary-color: #fff;
   --dark-secondary-color: #fff;
   --dark-nav-hover-color:#8576FF;
   --dark-background-event-color: #484554;
+  --dark-border: none;
   ;
 }
 
@@ -325,7 +327,8 @@ main{
 }
 
 #overview-cards .card {
-  border: 1px solid #e5e5e5;
+  /* border: 1px solid #e5e5e5; */
+  border: var(--border);
   padding: 20px;
   width: 40%;
   box-shadow: 0 2px 4px #8181811a;
@@ -427,7 +430,8 @@ main{
   padding: 10px;
   cursor: pointer;
   border-radius: 50%;
-  border: 2px solid #e5e5e5;
+  /* border: 2px solid #e5e5e5; */
+  border: var(--background-color);
   font-size: 8px;
   font-weight: bolder;
   
@@ -663,7 +667,7 @@ table {
 thead th {
   text-align: left;
   padding: 16px;
-  background-color: var(--primary-color);
+  background-color:var(--background-event-color);
   color:var(--text-color);
     font-weight: bold;
   border: 1px solid red;
@@ -773,6 +777,7 @@ option{
 .menu-dot{
   padding: 8px 10px;
   border: 1px solid #E2E8F0;
+  color: var(--text-color);
 }
 
 
@@ -780,7 +785,8 @@ option{
 .export-button{
   padding: 8px 16px;
   /* background-color: #fff; */
-  border: 1px solid #DBEAFE;
+  /* border: 1px solid #DBEAFE; */
+  border: var(--border);
   color:var(--text-color);
   background-color: var(--background-color);
 }
@@ -815,7 +821,8 @@ option{
 #next-btn{
   width: 36px;
   height: 36px;
-  border: 1px solid #E2E8F0;
+  /* border: 1px solid #E2E8F0; */
+  border: var(--border);
   border-radius: 2px;
   gap: 8px;
   padding: 8px;
@@ -830,4 +837,156 @@ option{
 #next-btn{
   margin-left: .5rem;
   color: var(--background-color);
+}
+
+
+
+
+
+
+
+
+/* Basic styles for the button to open the modal */
+/* .open-btn {
+  padding: 10px 20px;
+  background-color: #6a5acd;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+} */
+
+/* Modal container (hidden by default) */
+.modal {
+  color: var(--text-color);
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  /* padding: 20px; */
+  width: 100%; 
+  height: 100%; 
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Modal content */
+.modal-content {
+  background-color: var(--background-color);
+  margin: 15% auto;
+  /* margin: 10% auto; */
+  padding: 20px;
+  border-radius: 10px;
+  width: 440px;
+  height: 380px;
+  border: 1px solid red;
+  position: relative;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Close button */
+.close {
+  position: absolute;
+  top: 20px;
+  right: 15px;
+  color: var(--dark-background-event-color);
+  font-size: 12px;
+  cursor: pointer;
+  background-color: var(--background-event-color);
+  border: 1px solid #64748B;
+  padding: 4px;
+  border-radius: 50%;
+}
+
+.event-name{
+  font-size: 18px !important;
+}
+
+.event-date{
+  font-size: 14px !important;
+  margin-bottom: 2rem;
+}
+.event-description{
+  font-size: 14px !important;
+  margin-bottom:2rem ;
+}
+
+/* Guest speaker avatars */
+.speakers{
+  border: 1px solid red;
+  /* padding: 1rem; */
+  font-size: 14px !important;
+  line-height: 20px;
+}
+
+.guest-speakers {
+  display: flex;
+  /* gap: 5px; */
+  margin-bottom: 1rem;
+}
+
+.guest-speakers img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid #fff;
+  margin-top: .5rem;
+}
+.guest-avater-first{
+  z-index: 4;
+}
+.guest-avater-second{
+  transform: translateX(-20%);
+  z-index: 2;
+}
+.guest-avater-last{
+    transform: translateX(-40%);
+    z-index: 1;
+}
+
+/* Modal buttons */
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+  /* margin-top: 20px; */
+  font-size: 14px;
+  border: 1px solid red;
+  margin-top: 2rem;
+  /* background-color:red; */
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.edit-btn {
+  background-color: #f0f0f0;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: 2px;
+  color: #334155;
+}
+
+.delete-btn {
+  background-color: #F43F5E;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: 2px;
+  
+}
+
+.complete-btn {
+  background-color: #8576FF;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+/* Hover effects */
+button:hover {
+  opacity: 0.8;
 }
