@@ -26,13 +26,9 @@
           <li><i class='bx bx-bell'></i><a href="" class="text">Notification</a></li>
           <li><i class='bx bx-chat'></i><a href="" class="text">Message</a></li>
           <li><i class='bx bx-cog' ></i><a href="" class="text">Setting</a></li>
-          <li><i class='bx bx-chevrons-left'></i><a href="" class="text">Collapse</a></li>
-          <!-- <li><button id="darkModeToggle">Toggle Dark Mode</button></li> -->
+         
         </ul>
-        <!-- <div class="mode-changer">
-          <label id="dark-change"></label>
-          <span class="dark">Dark Mode</span>
-        </div> -->
+       
         <div class="mode-changer">
           <label id="dark-change" class="switch">
               <input type="checkbox" id="mode-toggle">
@@ -40,9 +36,6 @@
           </label>
           <span class="dark">Dark Mode</span>
       </div>
-      
-        
-
       </nav>
 
 <script>
@@ -74,7 +67,6 @@ modeToggle.addEventListener('change', function() {
 
        <div class="user-profile">
         <div class="avatar">
-            <!-- <img src="https://via.placeholder.com/40" alt="User Avatar" id="userAvatar"> -->
             <img src="/Asset/user.png" alt="User Avatar" id="userAvatar">
         </div>
         <div class="user-info">
@@ -87,6 +79,66 @@ modeToggle.addEventListener('change', function() {
 
     <!-- Main Content Section -->
     <main>
+      <header class="hide">
+     
+          <nav class="header-nav">
+            <div class="menu-btn" id="menu-btn">
+              <span class="menu-icon">&#9776;</span>
+          </div>
+            <div class="overlay" id="overlay">
+                <div class="close-btn" id="close-btn">&times;</div>
+                <div id="sidebar" class="nav-links">
+
+                  <h4>Full Logo</h4>
+                  <nav>
+                    <ul>
+                      <li><i class='bx bx-home'></i><a href="/" class="text">Home</a></li>
+                      <li><i class='bx bx-calendar'></i><a href="" class="text">Events</a></li>
+                      <li><i class='bx bxs-user-voice'></i><a href="" class="text">Speakers</a></li>
+                      <li><i class='bx bx-notepad'></i><a href="" class="text">Report</a></li>
+                      <li><i class='bx bx-bell'></i><a href="" class="text">Notification</a></li>
+                      <li><i class='bx bx-chat'></i><a href="" class="text">Message</a></li>
+                      <li><i class='bx bx-cog' ></i><a href="" class="text">Setting</a></li>
+                      <li><i class='bx bx-chevrons-left'></i><a href="" class="text">Collapse</a></li>
+                    </ul>
+                    <div class="mode-changer">
+                      <label id="dark-change" class="switch">
+                          <input type="checkbox" id="mode-toggle">
+                          <span class="slider round"></span>
+                      </label>
+                      <span class="dark">Dark Mode</span>
+                  </div>
+                  </nav>
+          
+                   <div class="user-profile">
+                    <div class="avatar">
+                        <img src="/Asset/user.png" alt="User Avatar" id="userAvatar">
+                    </div>
+                    <div class="user-info">
+                        <p id="userName">Rudra Devi</p>
+                        <p id="userEmail">rudra.devi@gmail.com</p>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </nav>
+        <script>
+          const menuBtn = document.getElementById('menu-btn');
+            const overlay = document.getElementById('overlay');
+            const closeBtn = document.getElementById('close-btn');
+
+            // Open overlay when menu button is clicked
+            menuBtn.addEventListener('click', () => {
+                overlay.classList.add('show');
+            });
+
+            // Close overlay when close button is clicked
+            closeBtn.addEventListener('click', () => {
+                overlay.classList.remove('show');
+            });
+        </script>
+      </header>
+
       <div class="welcome_summary">
         <p>Welcome! here's your summary</p>
       </div>
@@ -212,65 +264,10 @@ window.addEventListener("click", (event) => {
           </script>
       </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         <!-- Chart Section -->
         <div class="event_overview">
             <h2>Event Registration per month</h2>
             <div class="event_statistics">
-                <!-- <section id="chart-section">
-                    <div>
-                        <canvas id="myChart"></canvas>
-                      </div>
-                      
-                      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-                      
-                      <script>
-                        const ctx = document.getElementById('myChart');
-                      
-                        new Chart(ctx, {
-                          type: 'bar',
-                          data: {
-                            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-                            datasets: [{
-                              label: 'Data set',
-                              data:[700, 900, 700, 400, 1000, 500, 800, 400, 800, 700, 900, 600],
-                             borderWidth: 1
-                            }]
-                          },
-                          options: {
-                            scales: {
-                              y: {
-                                beginAtZero: true
-                              }
-                            }
-                          }
-                        });
-                      </script>
-                      
-                    </section> -->
-
                     <section id="chart-section">
                       <div>
                           <canvas id="myChart"></canvas>
@@ -428,40 +425,6 @@ dots.forEach((dot, index) => {
                 <button class="export-button"><i class="fa-solid fa-download"></i>  Export</button>
             </div>
         </div>
-        
-      
-          <!-- <div class="main-content-seach-btn">
-              <div class="input-search-btn">
-                      <span class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></span>
-                      <input type="text" class="search-input" placeholder="Search..." id="search-input">
-                    </div>
-                    <select name="" id="sort">
-                        <option value="">Date</option>
-                    </select>
-      
-                   
-                    <select name="" id="sort-status">
-                        <option value="">Status</option>
-                    </select>
-                    <select name="" id="sort-name">
-                        <option value="">Name</option>
-                    </select>
-                    <div class="result-display">
-                      <span id="results-count">Displaying 10 results</span>
-                    </div>
-                </div>
-                <div class="most-recent" >
-                    <span>Sort: <select name="" id="">
-                        <option value="">Most Recent</option>
-                       </select>
-                    </span>
-                    <span class="menu-dot"><i class='bx bx-dots-vertical-rounded'></i></span>
-                    <button class="export-button">
-                      <i class="fa-solid fa-download"></i> Export
-                      </button>
-                </div>
-              </div>
-          </div> -->
         
         <table id="event-table">
           <thead>
