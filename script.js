@@ -95,43 +95,43 @@ window.addEventListener('click', (e) => {
 // updateCarousel();
 
 
-const slides = document.querySelectorAll('.carousel-item');
-const prevBtn = document.querySelector('.prev');
-const nextBtn = document.querySelector('.next');
-const dots = document.querySelectorAll('.dot');
+// const slides = document.querySelectorAll('.carousel-item');
+// const prevBtn = document.querySelector('.prev');
+// const nextBtn = document.querySelector('.next');
+// const dots = document.querySelectorAll('.dot');
 
-let currentSlide = 0;
+// let currentSlide = 0;
 
-// Show the current slide
-function showSlide(index) {
-    if (index >= slides.length) currentSlide = 0;
-    if (index < 0) currentSlide = slides.length - 1;
-    // Move the slides
-    document.querySelector('.carousel-slide').style.transform = `translateX(-${currentSlide * 100}%)`;
-    // Update the active dot
-    dots.forEach(dot => dot.classList.remove('active'));
-    dots[currentSlide].classList.add('active');
-}
+// // Show the current slide
+// function showSlide(index) {
+//     if (index >= slides.length) currentSlide = 0;
+//     if (index < 0) currentSlide = slides.length - 1;
+//     // Move the slides
+//     document.querySelector('.carousel-slide').style.transform = `translateX(-${currentSlide * 100}%)`;
+//     // Update the active dot
+//     dots.forEach(dot => dot.classList.remove('active'));
+//     dots[currentSlide].classList.add('active');
+// }
 
-// Next slide button
-nextBtn.addEventListener('click', () => {
-    currentSlide++;
-    showSlide(currentSlide);
-});
+// // Next slide button
+// nextBtn.addEventListener('click', () => {
+//     currentSlide++;
+//     showSlide(currentSlide);
+// });
 
-// Previous slide button
-prevBtn.addEventListener('click', () => {
-    currentSlide--;
-    showSlide(currentSlide);
-});
+// // Previous slide button
+// prevBtn.addEventListener('click', () => {
+//     currentSlide--;
+//     showSlide(currentSlide);
+// });
 
-// Dot indicators click
-dots.forEach((dot, index) => {
-    dot.addEventListener('click', () => {
-        currentSlide = index;
-        showSlide(currentSlide);
-    });
-});
+// // Dot indicators click
+// dots.forEach((dot, index) => {
+//     dot.addEventListener('click', () => {
+//         currentSlide = index;
+//         showSlide(currentSlide);
+//     });
+// });
 
 
 

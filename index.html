@@ -93,8 +93,7 @@ modeToggle.addEventListener('change', function() {
         <!-- Overview Cards -->
         <section id="overview-cards">
             <div class="card open-btn" id="openModalBtn">
-                <div class="
-                _information">
+                <div class="event_information">
                    <h3>Total Event</h3>
                    <!-- <img src="./Asset/information.png"
                     alt="information">  -->
@@ -353,25 +352,94 @@ window.addEventListener("click", (event) => {
                     </div>
                 </div>
             </div>
+
+
+            <script>
+              const slides = document.querySelectorAll('.carousel-item');
+const prevBtn = document.querySelector('.prev');
+const nextBtn = document.querySelector('.next');
+const dots = document.querySelectorAll('.dot');
+
+let currentSlide = 0;
+
+// Show the current slide
+function showSlide(index) {
+    if (index >= slides.length) currentSlide = 0;
+    if (index < 0) currentSlide = slides.length - 1;
+    // Move the slides
+    document.querySelector('.carousel-slide').style.transform = `translateX(-${currentSlide * 100}%)`;
+    // Update the active dot
+    dots.forEach(dot => dot.classList.remove('active'));
+    dots[currentSlide].classList.add('active');
+}
+
+// Next slide button
+nextBtn.addEventListener('click', () => {
+    currentSlide++;
+    showSlide(currentSlide);
+});
+
+// Previous slide button
+prevBtn.addEventListener('click', () => {
+    currentSlide--;
+    showSlide(currentSlide);
+});
+
+// Dot indicators click
+dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+        currentSlide = index;
+        showSlide(currentSlide);
+    });
+});
+            </script>
       </div>   
        
 
       <div class="table-container">
         <h2>Event History</h2>
         <div class="table-header">
-          <!-- <input type="text" id="search-input" placeholder="Search..." class="search-input"> -->
-           <div class="main-content-seach-btn">
-                <div class="input-search-btn">
-                  <button class="search-button">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                </button>
-                    <input type="text" placeholder="Search..." id="search-input">
-                    
-                      <!-- </div> -->
-                      <!-- <div class="filters"> -->
+
+          <div class="toolbar">
+            <div class="toolbar-left">
+                <div class="search-bar">
+                    <!-- <span class="search-icon">🔍</span> -->
+                    <span class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></span>
+                    <input type="text" placeholder="Search..." />
+                </div>
+                <button class="dropdown-button">Date <span class="arrow"><i class='bx bxs-chevron-down'></i></span></button>
+                <button class="dropdown-button">Status <span class="arrow">▾</span></button>
+                <button class="dropdown-button">Name <span class="arrow"><i class='bx bxs-chevron-down'></i></span></button>
+                <div class="toolbar-center">
+                  <span>Displaying 100 results</span>
+              </div>
+          
+            </div>
+        
+            <!-- <div class="toolbar-center">
+                <span>Displaying 100 results</span>
+            </div> -->
+        
+            <div class="toolbar-right">
+                <span>Sort:</span>
+                <button class="dropdown-button">Most Recent <span class="arrow"><i class='bx bxs-chevron-down'></i></span></button>
+                <button class="icon-button">⋮</button>
+                <!-- <button class="icon-button"><i class='bx bx-dots-vertical-rounded'></i></button> -->
+                <button class="export-button"><i class="fa-solid fa-download"></i>  Export</button>
+            </div>
+        </div>
+        
+      
+          <!-- <div class="main-content-seach-btn">
+              <div class="input-search-btn">
+                      <span class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></span>
+                      <input type="text" class="search-input" placeholder="Search..." id="search-input">
+                    </div>
                     <select name="" id="sort">
                         <option value="">Date</option>
                     </select>
+      
+                   
                     <select name="" id="sort-status">
                         <option value="">Status</option>
                     </select>
@@ -381,7 +449,6 @@ window.addEventListener("click", (event) => {
                     <div class="result-display">
                       <span id="results-count">Displaying 10 results</span>
                     </div>
-                    <!-- <span id="results-count">Displaying 10 results</span> -->
                 </div>
                 <div class="most-recent" >
                     <span>Sort: <select name="" id="">
@@ -393,9 +460,8 @@ window.addEventListener("click", (event) => {
                       <i class="fa-solid fa-download"></i> Export
                       </button>
                 </div>
-            
-            </div>
-        </div>
+              </div>
+          </div> -->
         
         <table id="event-table">
           <thead>
@@ -431,49 +497,43 @@ window.addEventListener("click", (event) => {
               <td>John Lee</td>
               <td><span class="status completed">&bull; Completed</span></td>
             </tr>
-            <!-- More rows can be added here -->
             <tr>
               <td>Data Analysis in Business</td>
               <td>2024-11-12</td>
               <td>Rachel Moore</td>
               <td><span class="status completed">&bull; Completed</span></td>
             </tr>
-            <!-- More rows can be added here -->
             <tr>
               <td>Sustainable Energy Expo</td>
               <td>2024-09-28</td>
               <td>Prof. Alan Green</td>
               <td><span class="status completed">&bull; Completed</span></td>
             </tr>
-            <!-- More rows can be added here -->
+           
             <tr>
               <td>Web3 Interfaces Workshop</td>
               <td>2024-10-10</td>
               <td>Kelvin Adams</td>
               <td><span class="status in-progress">&bull; In Progress</span></td>
             </tr>
-            <!-- More rows can be added here -->
             <tr>
               <td>Cybersecurity for Startups</td>
               <td>2024-11-19</td>
               <td>Emily Zhang</td>
               <td><span class="status completed">&bull; Completed</span></td>
             </tr>
-            <!-- More rows can be added here -->
             <tr>
               <td>Smart Cities Forum</td>
               <td>2024-10-18</td>
               <td>Dr. Maria Hernandez</td>
               <td><span class="status in-progress"> &bull; In Progress</span></td>
             </tr>
-            <!-- More rows can be added here -->
             <tr>
               <td>Tech Safari Mixer</td>
               <td>2024-09-30</td>
               <td>Guest Panel</td>
               <td><span class="status in-progress">&bull; In Progress</span></td>
             </tr>
-            <!-- More rows can be added here -->
           </tbody>
         </table>
     
@@ -488,14 +548,29 @@ window.addEventListener("click", (event) => {
                 <span id="next-btn">&#62;</span>
               </div>
               <div class="show">
-                  <span>Show: <select name="" id="">
-                      <option value="">10 rows</option>
-                     </select></span>
+                
+              <div class="most-recent">
+                <span>Show:</span>
+                <button class="dropdown-button">Most Recent <span class="arrow"><i class='bx bxs-chevron-down'></i></span></button>
+              </div>
               </div>
         </div>
       </div>
 
+   
+      <footer>
+        <nav class="mobile-navbar">
+          <ul>
+            <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
+            <li><a href="#"><i class="fa fa-calendar"></i> Events</a></li>
+            <li><a href="#"><i class="fa fa-users"></i> Speakers</a></li>
+            <li><a href="#"><i class="fa fa-file"></i> Reports</a></li>
+            <li><a href="#"><i class="fa fa-user"></i> Profile</a></li>
+          </ul>
+        </nav>
+      </footer>
     </main>
+ 
     <script src="script.js"></script>
     <script src="script.js"></script>
 
