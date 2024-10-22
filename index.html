@@ -28,7 +28,6 @@
           <li><i class='bx bx-cog' ></i><a href="" class="text">Setting</a></li>
          
         </ul>
-       
         <div class="mode-changer">
           <label id="dark-change" class="switch">
               <input type="checkbox" id="mode-toggle">
@@ -37,39 +36,6 @@
           <span class="dark">Dark Mode</span>
       </div>
       </nav>
-
-<script>
-  const modeToggle = document.getElementById('mode-toggle');
-
-modeToggle.addEventListener('change', function() {
-    if (this.checked) {
-        // Enable dark mode by changing CSS variables
-        document.documentElement.style.setProperty('--background-color', 'var(--dark-background-color)');
-        document.documentElement.style.setProperty('--text-color', 'var(--dark-text-color)');
-        document.documentElement.style.setProperty('--primary-color', 'var(--dark-primary-color)');
-        document.documentElement.style.setProperty('--secondary-color', 'var(--dark-secondary-color)');
-        document.documentElement.style.setProperty('--nav-hover-color', 'var(--dark-nav-hover-color)');
-        document.documentElement.style.setProperty(' --background-event-color', 'var(-dark-background-event-color)');
-        document.documentElement.style.setProperty(' --border', 'var(--dark-border)');
-        document.documentElement.style.setProperty('--h2-color', 'var(--dark-h2-color)');
-        document.documentElement.style.setProperty('  --primary-color-row', 'var(--dark-primary-color-row)');
-    } else {
-        // Reset to light mode by changing back to original CSS variables
-        document.documentElement.style.setProperty('--background-color', 'var(--background-color)');
-        document.documentElement.style.setProperty('--text-color', 'var(--text-color)');
-        document.documentElement.style.setProperty('--primary-color', 'var(--primary-color)');
-        document.documentElement.style.setProperty('--secondary-color', 'var(--secondary-color)');
-        document.documentElement.style.setProperty('--nav-hover-color', 'var(--dark-nav-hover-color)');
-        document.documentElement.style.setProperty(' --background-event-color', 'var(-dark-background-event-color)');
-        document.documentElement.style.setProperty(' --border', 'var(-dark-border)');
-        document.documentElement.style.setProperty('--h2-color', 'var(--dark-h2-color)');
-        document.documentElement.style.setProperty('--primary-color-row', 'var(--dark-primary-color-row)');
-
-    }
-});
-
-</script>
-
        <div class="user-profile">
         <div class="avatar">
             <img src="/Asset/user.png" alt="User Avatar" id="userAvatar">
@@ -82,67 +48,100 @@ modeToggle.addEventListener('change', function() {
     </div>
 
 
+    <script>
+      const modeToggle = document.getElementById('mode-toggle');
+    
+    modeToggle.addEventListener('change', function() {
+        if (this.checked) {
+            // Enable dark mode by changing CSS variables
+            document.documentElement.style.setProperty('--background-color', 'var(--dark-background-color)');
+            document.documentElement.style.setProperty('--text-color', 'var(--dark-text-color)');
+            document.documentElement.style.setProperty('--primary-color', 'var(--dark-primary-color)');
+            document.documentElement.style.setProperty('--secondary-color', 'var(--dark-secondary-color)');
+            document.documentElement.style.setProperty('--nav-hover-color', 'var(--dark-nav-hover-color)');
+            document.documentElement.style.setProperty(' --background-event-color', 'var(-dark-background-event-color)');
+            document.documentElement.style.setProperty(' --border', 'var(--dark-border)');
+            document.documentElement.style.setProperty('--h2-color', 'var(--dark-h2-color)');
+            document.documentElement.style.setProperty('  --primary-color-row', 'var(--dark-primary-color-row)');
+        } else {
+            // Reset to light mode by changing back to original CSS variables
+            document.documentElement.style.setProperty('--background-color', 'var(--background-color)');
+            document.documentElement.style.setProperty('--text-color', 'var(--text-color)');
+            document.documentElement.style.setProperty('--primary-color', 'var(--primary-color)');
+            document.documentElement.style.setProperty('--secondary-color', 'var(--secondary-color)');
+            document.documentElement.style.setProperty('--nav-hover-color', 'var(--dark-nav-hover-color)');
+            document.documentElement.style.setProperty(' --background-event-color', 'var(-dark-background-event-color)');
+            document.documentElement.style.setProperty(' --border', 'var(-dark-border)');
+            document.documentElement.style.setProperty('--h2-color', 'var(--dark-h2-color)');
+            document.documentElement.style.setProperty('--primary-color-row', 'var(--dark-primary-color-row)');
+    
+        }
+    });
+    
+    </script>
+
     <!-- Main Content Section -->
     <main>
-      <header class="hide">
-     
-          <nav class="header-nav">
-            <div class="menu-btn" id="menu-btn">
-              <span class="menu-icon">&#9776;</span>
+      <header class="header">
+        <div class="topnav">
+          <h4 class="logo">Full Logo</h4>
+          <div class="hamburger" onclick="toggleNav()">&#9776;</div>
+        </div>
+        <div id="sidenav" class="sidenav">
+          <div class="closeloge">
+            <h4 class="emptylogo">Full Logo</h4>
+          <div>
+            <a href="javascript:void(0)" class="closebtn" onclick="toggleNav()">&times;</a>
           </div>
-            <div class="overlay" id="overlay">
-                <div class="close-btn" id="close-btn">&times;</div>
-                <div id="sidebar" class="nav-links">
-
-                  <h4>Full Logo</h4>
-                  <nav>
-                    <ul>
-                      <li><i class='bx bx-home'></i><a href="/" class="text">Home</a></li>
-                      <li><i class='bx bx-calendar'></i><a href="" class="text">Events</a></li>
-                      <li><i class='bx bxs-user-voice'></i><a href="" class="text">Speakers</a></li>
-                      <li><i class='bx bx-notepad'></i><a href="" class="text">Report</a></li>
-                      <li><i class='bx bx-bell'></i><a href="" class="text">Notification</a></li>
-                      <li><i class='bx bx-chat'></i><a href="" class="text">Message</a></li>
-                      <li><i class='bx bx-cog' ></i><a href="" class="text">Setting</a></li>
-                      <li><i class='bx bx-chevrons-left'></i><a href="" class="text">Collapse</a></li>
-                    </ul>
-                    <div class="mode-changer">
-                      <label id="dark-change" class="switch">
-                          <input type="checkbox" id="mode-toggle">
-                          <span class="slider round"></span>
-                      </label>
-                      <span class="dark">Dark Mode</span>
-                  </div>
-                  </nav>
-          
-                   <div class="user-profile">
-                    <div class="avatar">
-                        <img src="/Asset/user.png" alt="User Avatar" id="userAvatar">
-                    </div>
-                    <div class="user-info">
-                        <p id="userName">Rudra Devi</p>
-                        <p id="userEmail">rudra.devi@gmail.com</p>
-                    </div>
-                </div>
-                </div>
+          </div>
+          <!-- <a href="javascript:void(0)" class="closebtn" onclick="toggleNav()">&times;</a> -->
+          <nav>
+            <!-- <h4 class="emptylogo">Full Logo</h4> -->
+            <ul>
+              <li><i class='bx bx-home'></i><a href="/" class="text">Home</a></li>
+              <li><i class='bx bx-calendar'></i><a href="" class="text">Events</a></li>
+              <li><i class='bx bxs-user-voice'></i><a href="" class="text">Speakers</a></li>
+              <li><i class='bx bx-notepad'></i><a href="" class="text">Report</a></li>
+              <li><i class='bx bx-bell'></i><a href="" class="text">Notification</a></li>
+              <li><i class='bx bx-chat'></i><a href="" class="text">Message</a></li>
+              <li><i class='bx bx-cog' ></i><a href="" class="text">Setting</a></li>
+             
+            </ul>
+            <div class="mode-changer">
+              <label id="dark-change" class="switch">
+                  <input type="checkbox" id="mode-toggle">
+                  <span class="slider round"></span>
+              </label>
+              <span class="dark">Dark Mode</span>
+          </div>
+          <div class="user-profile">
+            <div class="avatar">
+                <img src="/Asset/user.png" alt="User Avatar" id="userAvatar">
             </div>
-        </nav>
+            <div class="user-info">
+                <p id="userName">Rudra Devi</p>
+                <p id="userEmail">rudra.devi@gmail.com</p>
+            </div>
+        </div>
+        </div>
+    
+          </nav>
+        </div>
+        
         <script>
-          const menuBtn = document.getElementById('menu-btn');
-            const overlay = document.getElementById('overlay');
-            const closeBtn = document.getElementById('close-btn');
-
-            // Open overlay when menu button is clicked
-            menuBtn.addEventListener('click', () => {
-                overlay.classList.add('show');
-            });
-
-            // Close overlay when close button is clicked
-            closeBtn.addEventListener('click', () => {
-                overlay.classList.remove('show');
-            });
+          function toggleNav() {
+            const sidenav = document.getElementById("sidenav");
+            if (sidenav.style.width === "100%") {
+              sidenav.style.width = "0";
+            } else {
+              sidenav.style.width = "100%";
+            }
+          }          
         </script>
       </header>
+
+
+
 
       <div class="welcome_summary">
         <p>Welcome! here's your summary</p>
@@ -152,8 +151,6 @@ modeToggle.addEventListener('change', function() {
             <div class="card open-btn" id="openModalBtn">
                 <div class="event_information">
                    <h3>Total Event</h3>
-                   <!-- <img src="./Asset/information.png"
-                    alt="information">  -->
                     <span><ion-icon name="alert-circle-outline"></ion-icon></span>
                 </div>
                 <div class="event_sub_information">
@@ -163,23 +160,19 @@ modeToggle.addEventListener('change', function() {
                 </div>
             </div>
             <div class="card">
-                <div class="event_information">
-                   <h3>Active Speakers</h3>
-                   <!-- <img src="./Asset/information.png"
-                    alt="information">  -->
-                    <span><ion-icon name="alert-circle-outline"></ion-icon></span>
-                </div>
-                <div class="event_sub_information">
-                    <h2>25</h2>
-                    <p><img src="./Asset/arrow-down-right.png" alt="direction"></p>
-                    <p style="color:#F43F5E;"> -5.0&#37;</p>
-                </div>
-            </div>
+              <div class="event_information">
+                 <h3>Active Speakers</h3>
+                  <span><ion-icon name="alert-circle-outline"></ion-icon></span>
+              </div>
+              <div class="event_sub_information">
+                  <h2>25</h2>
+                  <p><img src="./Asset/arrow-up-right.png" alt="direction"></p>
+                  <p style="color:#F43F5E;"> -5.0&#37;</p>
+              </div>
+          </div>
             <div class="card">
                 <div class="event_information">
                    <h3>Total Registrations</h3>
-                   <!-- <img src="./Asset/information.png"
-                    alt="information">  -->
                     <span><ion-icon name="alert-circle-outline"></ion-icon></span>
                 </div>
                 <div class="event_sub_information">
@@ -190,9 +183,6 @@ modeToggle.addEventListener('change', function() {
             </div>
             <div class="card">
                 <div class="event_information">
-                   <h3>Total Revenue</h3>
-                   <!-- <img src="./Asset/information.png"
-                    alt="information">  -->
                     <span><ion-icon name="alert-circle-outline"></ion-icon></span>
                 </div>
                 <div  class="event_sub_information">
@@ -203,12 +193,6 @@ modeToggle.addEventListener('change', function() {
             </div>
         </section>
 
-
-        <!-- <div class="container"> -->
-          <!-- Button to Open Modal -->
-          <!-- <button id="openModalBtn" class="open-btn">Open Event Modal</button>
-      </div>
-   -->
       <!-- Modal Structure -->
       <div id="eventModal" class="modal">
           <div class="modal-content">
@@ -220,9 +204,9 @@ modeToggle.addEventListener('change', function() {
               <!-- Guest Speakers -->
               <div class="speakers">
                 <div class="guest-speakers">
-                  <img src="/Asset/first-guest.png" alt="Guest 1" class="guest-avater-first" >
-                  <img src="/Asset/second-guest.png" alt="Guest 2" class="guest-avater-second">
-                  <img src="/Asset/third-guest.png" alt="Guest 3" class="guest-avater-last">
+                  <img src="/Asset/first-guest.png" alt="First Guest" class="guest-avater-first" >
+                  <img src="/Asset/second-guest.png" alt="Second Guest" class="guest-avater-second">
+                  <img src="/Asset/third-guest.png" alt="Third Guest" class="guest-avater-last">
               </div>
               <p>3 Guest Speakers: Speaker name A, Speaker name B, Speaker name C.</p>
               <p>300 Attendees</p>
@@ -236,10 +220,19 @@ modeToggle.addEventListener('change', function() {
                   <!-- <button class="edit-btn">Edit</button> -->
                   <!-- <button class="delete-btn">Delete</button>
                   <button class="complete-btn">Mark as completed</button> -->
-                  <div>
+                  <div class="complete-delete-btn">
+                    <div>
+                      <button class="delete-btn">Delete</button>
+                    </div>
+                    <div>
+                      <button class="complete-btn">Mark as completed</button>
+                    </div>
+                 
+                  </div>
+                  <!-- <div class="complete-delete-btn">
                     <button class="delete-btn">Delete</button>
                   <button class="complete-btn">Mark as completed</button>
-                  </div>
+                  </div> -->
               </div>
           </div>
 
