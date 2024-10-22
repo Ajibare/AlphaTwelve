@@ -13,6 +13,7 @@
   /* Light mode color variables */
   --background-color: #fff;
   --primary-color: #64748B;
+  --primary-color-row: #F1F5F9;
   --text-color: #334155;
   --secondary-color:#fff ;
   --nav-hover-color:#FCF7FF;
@@ -26,6 +27,7 @@
   --dark-background-color: #484554;
   --dark-text-color: #ffff;
   --dark-primary-color: #fff;
+  --dark-primary-color-row:#6A6676 ;
   --dark-secondary-color: #6A6676;
   --dark-nav-hover-color:#8576FF;
   --dark-background-event-color: #6A6676;
@@ -260,6 +262,7 @@ main{
   font-weight: lighter;
   font-size: 24px;
   margin-top: 2rem;
+  /* color: var(--h2-color); */
 }
 .welcome_summary p{
   font-weight: lighter;
@@ -296,7 +299,7 @@ main{
   font-weight: bold;
   padding-top: 4px;
   /* color: #334155; */
-  color: var(--h2-color);
+  color: var(--primary-color);
 }
 .event_sub_information p{
   border: 1px solid red;
@@ -730,9 +733,9 @@ table {
 thead th {
   text-align: left;
   padding: 16px;
-  background-color:var(--background-event-color);
+  background-color:var(--primary-color-row);
   color:var(--text-color);
-    font-weight: bold;
+  font-weight: bold;
   border: 1px solid red;
   width: 269px;
 }
@@ -810,9 +813,9 @@ tbody td {
   color: #fff;
 }
 
-.show{
+/* .show{
   font-size: 14px;
-}
+} */
 
 
 

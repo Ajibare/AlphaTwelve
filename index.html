@@ -50,7 +50,9 @@ modeToggle.addEventListener('change', function() {
         document.documentElement.style.setProperty('--secondary-color', 'var(--dark-secondary-color)');
         document.documentElement.style.setProperty('--nav-hover-color', 'var(--dark-nav-hover-color)');
         document.documentElement.style.setProperty(' --background-event-color', 'var(-dark-background-event-color)');
-        document.documentElement.style.setProperty(' --border', 'var(-dark-border)');
+        document.documentElement.style.setProperty(' --border', 'var(--dark-border)');
+        document.documentElement.style.setProperty('--h2-color', 'var(--dark-h2-color)');
+        document.documentElement.style.setProperty('  --primary-color-row', 'var(--dark-primary-color-row)');
     } else {
         // Reset to light mode by changing back to original CSS variables
         document.documentElement.style.setProperty('--background-color', 'var(--background-color)');
@@ -60,6 +62,9 @@ modeToggle.addEventListener('change', function() {
         document.documentElement.style.setProperty('--nav-hover-color', 'var(--dark-nav-hover-color)');
         document.documentElement.style.setProperty(' --background-event-color', 'var(-dark-background-event-color)');
         document.documentElement.style.setProperty(' --border', 'var(-dark-border)');
+        document.documentElement.style.setProperty('--h2-color', 'var(--dark-h2-color)');
+        document.documentElement.style.setProperty('--primary-color-row', 'var(--dark-primary-color-row)');
+
     }
 });
 
@@ -510,8 +515,8 @@ dots.forEach((dot, index) => {
                </div>
                 <span id="next-btn">&#62;</span>
               </div>
-              <div class="show">
-                
+              <!-- <div class="show"> -->
+              <div>                
               <div class="most-recent">
                 <span>Show:</span>
                 <button class="dropdown-button">Most Recent <span class="arrow"><i class='bx bxs-chevron-down'></i></span></button>
