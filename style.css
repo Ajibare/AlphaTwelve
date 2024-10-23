@@ -17,6 +17,7 @@
   --background-event-color: #F1F5F9;
   --border: 1px solid #F1F5F9;
   --h2-color: #000;
+  --table-column:#F1F5F9;
 
 
 
@@ -28,9 +29,10 @@
   --dark-secondary-color: #6A6676;
   --dark-nav-hover-color:#8576FF;
   --dark-background-event-color: #6A6676;
+  /* --dark-background-event-color: red; */
   --dark-border: none;
   --dark-h2-color: #fff;
-  ;
+  --dark-table-column:#6A6676;
 }
 
 body {
@@ -652,7 +654,7 @@ table {
 thead th {
   text-align: left;
   padding: 16px;
-  background-color:var(--primary-color-row);
+  background-color:var(--table-column);
   color:var(--text-color);
   font-weight: bold;
   width: 269px;
@@ -660,7 +662,6 @@ thead th {
 
 
 tbody td {
-
   padding: 12px;
   font-size: 14px;
   text-align: start;
