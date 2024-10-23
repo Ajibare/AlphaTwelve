@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Ajibare B B">
-    <meta name="description" content="Ajibare Resume">
+    <meta name="description" content="Ajibare Technical Skill">
     <title>Event Management Dashboard</title>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -113,7 +113,7 @@
             </ul>
             <div class="mode-changer">
               <label id="dark-change" class="switch">
-                  <input type="checkbox" id="mode-toggle">
+                  <input type="checkbox" id="second-mode-toggle">
                   <span class="slider round"></span>
               </label>
               <span class="dark">Dark Mode</span>
@@ -141,6 +141,40 @@
               sidenav.style.width = "100%";
             }
           }          
+        </script>
+
+        <script>
+          const secondModeToggle = document.getElementById('second-mode-toggle');
+        
+        secondModeToggle.addEventListener('change', function() {
+            if (this.checked) {
+                // Enable dark mode by changing CSS variables
+                document.documentElement.style.setProperty('--background-color', 'var(--dark-background-color)');
+                document.documentElement.style.setProperty('--text-color', 'var(--dark-text-color)');
+                document.documentElement.style.setProperty('--primary-color', 'var(--dark-primary-color)');
+                document.documentElement.style.setProperty('--secondary-color', 'var(--dark-secondary-color)');
+                document.documentElement.style.setProperty('--nav-hover-color', 'var(--dark-nav-hover-color)');
+                document.documentElement.style.setProperty(' --background-event-color', 'var(--dark-background-event-color)');
+                document.documentElement.style.setProperty(' --border', 'var(--dark-border)');
+                document.documentElement.style.setProperty('--h2-color', 'var(--dark-h2-color)');
+                document.documentElement.style.setProperty('  --primary-color-row', 'var(--dark-primary-color-row)');
+                document.documentElement.style.setProperty('--table-column', 'var(--dark-table-column)');
+            } else {
+                // Reset to light mode by changing back to original CSS variables
+                document.documentElement.style.setProperty('--background-color', 'var(--background-color)');
+                document.documentElement.style.setProperty('--text-color', 'var(--text-color)');
+                document.documentElement.style.setProperty('--primary-color', 'var(--primary-color)');
+                document.documentElement.style.setProperty('--secondary-color', 'var(--secondary-color)');
+                document.documentElement.style.setProperty('--nav-hover-color', 'var(--dark-nav-hover-color)');
+                document.documentElement.style.setProperty(' --background-event-color', 'var(--dark-background-event-color)');
+                document.documentElement.style.setProperty(' --border', 'var(--dark-border)');
+                document.documentElement.style.setProperty('--h2-color', 'var(--dark-h2-color)');
+                document.documentElement.style.setProperty('--primary-color-row', 'var(--dark-primary-color-row)');
+                document.documentElement.style.setProperty('--table-column', 'var(--dark-table-column)');
+        
+            }
+        });
+        
         </script>
       </header>
 
@@ -554,7 +588,6 @@ dots.forEach((dot, index) => {
       <footer>
         <!-- <hr> -->
         <nav class="mobile-navbar">
-          <hr>
           <ul>
             <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
             <li><a href="#"><i class="fa fa-calendar"></i> Events</a></li>

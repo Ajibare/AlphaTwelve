@@ -896,7 +896,7 @@ button:hover {
 .mobile-navbar {
   display: none;
   justify-content: space-evenly;
-  background-color: #f0f0f0;
+  background-color:var(--background-color);
   padding: 10px;
 }
 
@@ -1182,6 +1182,7 @@ footer{
     display: block;
     color: var(--text-color);
     background-color: var(--background-color);
+    z-index: 4;
   }
 
 /* Top navigation bar */
@@ -1195,7 +1196,7 @@ footer{
   top: 0;
   bottom: 100;
   width: 100%;
-  z-index: 1;
+  z-index: 4;
 }
 
 
@@ -1244,7 +1245,7 @@ footer{
   background-color: var(--background-color);
   overflow-x: hidden;
   transition: 0.5s;
-  padding-top: 60px;
+  padding-top: 10px;
   z-index: 100;
 }
 
@@ -1285,7 +1286,7 @@ footer{
 /* Close button for the side navigation */
 .sidenav .closebtn {
   position: absolute;
-  top: 55px;
+  top: 10px;
   right: 25px;
   font-size: 16px;
   cursor: pointer;
