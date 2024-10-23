@@ -955,6 +955,7 @@ button:hover {
   }
   .welcome_summary p{
     font-size: 17px;
+    padding-left: 1rem;
   }
 
   #overview-cards {
@@ -965,8 +966,9 @@ button:hover {
   }
 
   #overview-cards .card {
-      width: 80%;
+      width: 90%;
       margin-bottom: 10px;
+      display: block;
   }
 
   .event_overview h2{
