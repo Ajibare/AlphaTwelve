@@ -697,6 +697,7 @@ tbody td {
 .pagination {
   display: flex;
   align-items: center;
+  gap: 20px;
 }
 
 .pagination span {
