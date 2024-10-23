@@ -8,9 +8,7 @@
     <title>Event Management Dashboard</title>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-   <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"> -->
     <link rel="stylesheet" href="style.css">
-
 </head>
 <body>
     <!-- Sidebar Navigation -->
@@ -59,7 +57,7 @@
             document.documentElement.style.setProperty('--primary-color', 'var(--dark-primary-color)');
             document.documentElement.style.setProperty('--secondary-color', 'var(--dark-secondary-color)');
             document.documentElement.style.setProperty('--nav-hover-color', 'var(--dark-nav-hover-color)');
-            document.documentElement.style.setProperty(' --background-event-color', 'var(-dark-background-event-color)');
+            document.documentElement.style.setProperty(' --background-event-color', 'var(--dark-background-event-color)');
             document.documentElement.style.setProperty(' --border', 'var(--dark-border)');
             document.documentElement.style.setProperty('--h2-color', 'var(--dark-h2-color)');
             document.documentElement.style.setProperty('  --primary-color-row', 'var(--dark-primary-color-row)');
@@ -70,8 +68,8 @@
             document.documentElement.style.setProperty('--primary-color', 'var(--primary-color)');
             document.documentElement.style.setProperty('--secondary-color', 'var(--secondary-color)');
             document.documentElement.style.setProperty('--nav-hover-color', 'var(--dark-nav-hover-color)');
-            document.documentElement.style.setProperty(' --background-event-color', 'var(-dark-background-event-color)');
-            document.documentElement.style.setProperty(' --border', 'var(-dark-border)');
+            document.documentElement.style.setProperty(' --background-event-color', 'var(--dark-background-event-color)');
+            document.documentElement.style.setProperty(' --border', 'var(--dark-border)');
             document.documentElement.style.setProperty('--h2-color', 'var(--dark-h2-color)');
             document.documentElement.style.setProperty('--primary-color-row', 'var(--dark-primary-color-row)');
     
@@ -94,14 +92,18 @@
             <a href="javascript:void(0)" class="closebtn" onclick="toggleNav()">&times;</a>
           </div>
           </div>
-          <!-- <a href="javascript:void(0)" class="closebtn" onclick="toggleNav()">&times;</a> -->
           <nav>
-            <!-- <h4 class="emptylogo">Full Logo</h4> -->
             <ul>
               <li><i class='bx bx-home'></i><a href="/" class="text">Home</a></li>
               <li><i class='bx bx-calendar'></i><a href="" class="text">Events</a></li>
               <li><i class='bx bxs-user-voice'></i><a href="" class="text">Speakers</a></li>
               <li><i class='bx bx-notepad'></i><a href="" class="text">Report</a></li>
+              <!-- <li>
+                <div class="notifications-badge">
+                  <i class="fa fa-bell"></i>
+                  <span class="badge">3</span>
+                </div>
+              </li> -->
               <li><i class='bx bx-bell'></i><a href="" class="text">Notification</a></li>
               <li><i class='bx bx-chat'></i><a href="" class="text">Message</a></li>
               <li><i class='bx bx-cog' ></i><a href="" class="text">Setting</a></li>
@@ -183,6 +185,7 @@
             </div>
             <div class="card">
                 <div class="event_information">
+                  <h3>Total Revenue</h3>
                     <span><ion-icon name="alert-circle-outline"></ion-icon></span>
                 </div>
                 <div  class="event_sub_information">
@@ -217,9 +220,6 @@
                 <div >
                   <button class="edit-btn">Edit</button>
                 </div>
-                  <!-- <button class="edit-btn">Edit</button> -->
-                  <!-- <button class="delete-btn">Delete</button>
-                  <button class="complete-btn">Mark as completed</button> -->
                   <div class="complete-delete-btn">
                     <div>
                       <button class="delete-btn">Delete</button>
@@ -229,10 +229,6 @@
                     </div>
                  
                   </div>
-                  <!-- <div class="complete-delete-btn">
-                    <button class="delete-btn">Delete</button>
-                  <button class="complete-btn">Mark as completed</button>
-                  </div> -->
               </div>
           </div>
 
@@ -266,72 +262,91 @@ window.addEventListener("click", (event) => {
         <div class="event_overview">
             <h2>Event Registration per month</h2>
             <div class="event_statistics">
-                    <section id="chart-section">
-                      <div>
-                          <canvas id="myChart"></canvas>
-                      </div>
-                      
-                      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-                      
-                      <script>
-                          const ctx = document.getElementById('myChart');
-                      
-                          new Chart(ctx, {
-                              type: 'bar',
-                              data: {
-                                  labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
-                                  datasets: [{
-                                      // Removed the label here to remove it from the chart
-                                      data: [700, 900, 700, 400, 1000, 500, 800, 400, 800, 700, 900, 600],
-                                      backgroundColor: 'rgba(54, 162, 235, 0.5)', // Adjusted background color
-                                      borderColor: 'rgba(54, 162, 235, 1)', // Adjusted border color
-                                      borderWidth: 1
-                                  }]
+                  <section id="chart-section">
+                    <div>
+                      <canvas id="myChart"></canvas>
+                    </div>
+                  
+                    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                  
+                    <script>
+                      const ctx = document.getElementById('myChart');
+                  
+                      new Chart(ctx, {
+                        type: 'bar',
+                        data: {
+                          labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                          datasets: [{
+                            // Data points for the chart
+                            data: [700, 950, 790, 420, 1000, 580, 840, 350, 820, 650, 950, 600],
+                            backgroundColor: '#8576FF', // Bar color
+                            borderWidth: 1,
+                            borderRadius: 1
+                          }]
+                        },
+                        options: {
+                          plugins: {
+                            legend: {
+                              display: false // Hide the 'Data set' label
+                            }
+                          },
+                          scales: {
+                            y: {
+                              beginAtZero: true,
+                              ticks: {
+                                stepSize: 200, // Interval between y-axis labels
+                                max: 1000, // Maximum y-axis value
+                                color: '#484554' // Color of the y-axis labels (Tomato color)
                               },
-                              options: {
-                                  plugins: {
-                                      legend: {
-                                          display: false // Hides the 'Data set' label
-                                      }
-                                  },
-                                  scales: {
-                                      y: {
-                                          beginAtZero: true,
-                                          ticks: {
-                                              stepSize: 200, // Defines the interval between y-axis labels
-                                              max: 1000 // Sets the maximum y-axis value
-                                          }
-                                      }
-                                  }
+                              grid: {
+                                color: '' // Customize the grid color
                               }
-                          });
-                      </script>
+                            },
+                            x: {
+                              ticks: {
+                                color: '#484554' // Color of the x-axis labels (Steel Blue color)
+                              },
+                              grid: {
+                                color: '' // Customize the grid color
+                              }
+                            }
+                          }
+                        }
+                      });
+                    </script>
                   </section>
+                  
                   
                 <!-- Carousel Section (Latest News & Updates) -->
                 <div class="carousel-container">
                     <!-- Carousel Items -->
                     <div class="carousel-slide">
                         <div class="carousel-item">
+                          <div class="image-overlay">
                             <img src="/Asset/firstevent.png" alt="Third Event">
                             <div class="text-overlay">
                                 <h3>Latest News & Updates</h3>
                                 <p>Turpis interdum nunc varius ornare dignissim pretium. Massa ornare quis aliquet sed vitae. Sed velit nisi, fermentum erat. Fringilla purus, erat fringilla tincidunt quisque non. Pellentesque in ut tellus.</p>
                             </div>
+                          </div>
                         </div>
                         <div class="carousel-item">
+                          <div class="image-overlay">
                             <img src="/Asset/secondevent.png" alt="Second Event">
                             <div class="text-overlay">
                                 <h3>Latest News & Updates</h3>
                                 <p>Turpis interdum nunc varius ornare dignissim pretium. Massa ornare quis aliquet sed vitae. Sed velit nisi, fermentum erat. Fringilla purus, erat fringilla tincidunt quisque non. Pellentesque in ut tellus.</p>
                             </div>
+                          </div>
                         </div>
                         <div class="carousel-item">
+                          <div class="image-overlay">
                             <img src="/Asset/thirdevent.png" alt="Third Event">
                             <div class="text-overlay">
                                 <h3>Latest News & Updates</h3>
                                 <p>Turpis interdum nunc varius ornare dignissim pretium. Massa ornare quis aliquet sed vitae. Sed velit nisi, fermentum erat. Fringilla purus, erat fringilla tincidunt quisque non. Pellentesque in ut tellus.</p>
                             </div>
+                          </div>
                         </div>
                     </div>
                     
@@ -349,44 +364,51 @@ window.addEventListener("click", (event) => {
             </div>
 
 
+
             <script>
-              const slides = document.querySelectorAll('.carousel-item');
+              let slideIndex = 0;
+const slides = document.querySelectorAll('.carousel-item');
+const dots = document.querySelectorAll('.dot');
 const prevBtn = document.querySelector('.prev');
 const nextBtn = document.querySelector('.next');
-const dots = document.querySelectorAll('.dot');
 
-let currentSlide = 0;
-
-// Show the current slide
 function showSlide(index) {
-    if (index >= slides.length) currentSlide = 0;
-    if (index < 0) currentSlide = slides.length - 1;
-    // Move the slides
-    document.querySelector('.carousel-slide').style.transform = `translateX(-${currentSlide * 100}%)`;
-    // Update the active dot
-    dots.forEach(dot => dot.classList.remove('active'));
-    dots[currentSlide].classList.add('active');
+  // Hide all slides and remove active dot
+  slides.forEach((slide, i) => {
+    slide.style.display = 'none'; // Hide all slides
+  });
+
+  dots.forEach((dot) => {
+    dot.classList.remove('active'); // Remove 'active' class from all dots
+  });
+
+  // Show the current slide and set the current dot to active
+  slides[index].style.display = 'block'; 
+  dots[index].classList.add('active');
 }
 
-// Next slide button
-nextBtn.addEventListener('click', () => {
-    currentSlide++;
-    showSlide(currentSlide);
-});
+function nextSlide() {
+  slideIndex = (slideIndex + 1) % slides.length; // Increment index with wrap around
+  showSlide(slideIndex); // Update slides and dots
+}
 
-// Previous slide button
-prevBtn.addEventListener('click', () => {
-    currentSlide--;
-    showSlide(currentSlide);
-});
+function autoSlide() {
+  nextSlide();
+  setTimeout(autoSlide, 3000); // Change every 3 seconds
+}
 
-// Dot indicators click
+// Initialize the carousel
+showSlide(slideIndex); // Show the first slide
+autoSlide(); // Start the automatic sliding
+
+// Add click event for manual dot navigation
 dots.forEach((dot, index) => {
-    dot.addEventListener('click', () => {
-        currentSlide = index;
-        showSlide(currentSlide);
-    });
+  dot.addEventListener('click', () => {
+    slideIndex = index;
+    showSlide(slideIndex);
+  });
 });
+
             </script>
       </div>   
        
@@ -398,7 +420,6 @@ dots.forEach((dot, index) => {
           <div class="toolbar">
             <div class="toolbar-left">
                 <div class="search-bar">
-                    <!-- <span class="search-icon">🔍</span> -->
                     <span class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></span>
                     <input type="text" placeholder="Search..." />
                 </div>
@@ -411,16 +432,23 @@ dots.forEach((dot, index) => {
           
             </div>
         
-            <!-- <div class="toolbar-center">
-                <span>Displaying 100 results</span>
-            </div> -->
-        
             <div class="toolbar-right">
-                <span>Sort:</span>
-                <button class="dropdown-button">Most Recent <span class="arrow"><i class='bx bxs-chevron-down'></i></span></button>
-                <button class="icon-button">⋮</button>
-                <!-- <button class="icon-button"><i class='bx bx-dots-vertical-rounded'></i></button> -->
-                <button class="export-button"><i class="fa-solid fa-download"></i>  Export</button>
+              <div class="sort-dropdown">
+                <div class="sort-sort">
+                  Sort:
+                </div>
+                 <div>
+                  <button class="dropdown-button">Most Recent <span class="arrow"><i class='bx bxs-chevron-down'></i></span></button>
+                 </div>
+              </div>
+                <div class="flex-export-btn">
+                  <div>
+                    <button class="icon-button">⋮</button>
+                  </div>
+                  <div class="export-btn">
+                    <button class="export-button"><i class="fa-solid fa-download"></i>  Export</button>
+                  </div>
+                </div>
             </div>
         </div>
         
@@ -428,71 +456,71 @@ dots.forEach((dot, index) => {
           <thead>
             <tr>
               <th>Event Name</th>
-              <th>Date</th>
-              <th>Speaker</th>
+              <th class="details-row">Date</th>
+              <th class="details-row">Speaker</th>
               <th>Status</th>
             </tr>
           </thead>
           <tbody id="table-body">
             <tr>
               <td>Cloud Innovation Summit</td>
-              <td>2024-10-15</td>
-              <td>Jane Doe</td>
+              <td class="details-row">2024-10-15</td>
+              <td class="details-row">Jane Doe</td>
               <td><span class="status completed">&bull; Completed</span></td>
             </tr>
             <tr>
               <td>Blockchain Revolution Conference</td>
-              <td>2024-11-05</td>
-              <td>Dr. Peter Smith</td>
+              <td class="details-row">2024-11-05</td>
+              <td class="details-row">Dr. Peter Smith</td>
               <td><span class="status in-progress">&bull; in Progress</span></td>
             </tr>
             <tr>
               <td>AI in Healthcare Symposium</td>
-              <td>2024-12-01</td>
-              <td>Dr. Aisha Malik</td>
+              <td class="details-row">2024-12-01</td>
+              <td class="details-row">Dr. Aisha Malik</td>
               <td><span class="status completed">&bull; Completed</span></td>
             </tr>
             <tr>
               <td>Future of Fintech Forum</td>
-              <td>2024-10-25</td>
-              <td>John Lee</td>
+              <td class="details-row">2024-10-25</td>
+              <td class="details-row">John Lee</td>
               <td><span class="status completed">&bull; Completed</span></td>
             </tr>
             <tr>
               <td>Data Analysis in Business</td>
-              <td>2024-11-12</td>
-              <td>Rachel Moore</td>
+              <td class="details-row">2024-11-12</td>
+              <td class="details-row">Rachel Moore</td>
               <td><span class="status completed">&bull; Completed</span></td>
             </tr>
             <tr>
               <td>Sustainable Energy Expo</td>
-              <td>2024-09-28</td>
-              <td>Prof. Alan Green</td>
+              <td class="details-row" >2024-09-28</td>
+              <td class="details-row">Prof. Alan Green</td>
               <td><span class="status completed">&bull; Completed</span></td>
             </tr>
            
             <tr>
               <td>Web3 Interfaces Workshop</td>
-              <td>2024-10-10</td>
-              <td>Kelvin Adams</td>
+              <td class="details-row">2024-10-10</td>
+              <td class="details-row">Kelvin Adams</td>
               <td><span class="status in-progress">&bull; In Progress</span></td>
             </tr>
             <tr>
               <td>Cybersecurity for Startups</td>
-              <td>2024-11-19</td>
-              <td>Emily Zhang</td>
+              <td class="details-row">2024-11-19</td>
+              <td class="details-row">Emily Zhang</td>
               <td><span class="status completed">&bull; Completed</span></td>
             </tr>
             <tr>
               <td>Smart Cities Forum</td>
-              <td>2024-10-18</td>
-              <td>Dr. Maria Hernandez</td>
+              <td class="details-row">2024-10-18</td>
+              <td class="details-row">Dr. Maria Hernandez</td>
               <td><span class="status in-progress"> &bull; In Progress</span></td>
             </tr>
             <tr>
               <td>Tech Safari Mixer</td>
-              <td>2024-09-30</td>
-              <td>Guest Panel</td>
+              <td class="details-row">2024-09-30</td>
+              <td class="details-row">Guest Panel</td>
               <td><span class="status in-progress">&bull; In Progress</span></td>
             </tr>
           </tbody>
@@ -501,26 +529,31 @@ dots.forEach((dot, index) => {
         <div class="flex-pagination">
             <div class="pagination">
                 <span id="prev-btn">&#60;</span>
-               <div class="number">
-                <span id="page-number" class="number-one">1</span>
-                <span id="page-number">2</span>
-                <span id="page-number">3</span>
+                <span class="page-number" id="page-number-1">1</span>
+<span class="page-number" id="page-number-2">2</span>
+<span class="page-number" id="page-number-3">3</span>
+
                </div>
                 <span id="next-btn">&#62;</span>
               </div>
               <!-- <div class="show"> -->
               <div>                
               <div class="most-recent">
-                <span>Show:</span>
-                <button class="dropdown-button">Most Recent <span class="arrow"><i class='bx bxs-chevron-down'></i></span></button>
+                <div class="show-show">
+                  Show:
+                </div>
+               <div class="most-recent-btn">
+                <button class="most-recent-button">10 row <span class="arrow"><i class='bx bxs-chevron-down'></i></span></button>
+               </div>
               </div>
               </div>
         </div>
       </div>
-
    
       <footer>
+        <!-- <hr> -->
         <nav class="mobile-navbar">
+          <hr>
           <ul>
             <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
             <li><a href="#"><i class="fa fa-calendar"></i> Events</a></li>
@@ -532,9 +565,9 @@ dots.forEach((dot, index) => {
       </footer>
     </main>
  
-    <script src="script.js"></script>
-    <script src="script.js"></script>
 
+
+    <script src="script.js"></script>
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
